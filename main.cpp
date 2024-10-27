@@ -7,10 +7,10 @@ using namespace std;
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 
-int select_goat(list<Goat>& trip);
-void delete_goat(list<Goat>& trip);
-void add_goat(list<Goat>& trip, string names[], string colors[]);
-void display_trip(list<Goat>& trip);
+int select_goat(set<Goat>& trip);
+void delete_goat(set<Goat>& trip);
+void add_goat(set<Goat>& trip, string names[], string colors[]);
+void display_trip(const set<Goat>& trip);
 int main_menu();
 
 
@@ -31,7 +31,7 @@ int main() {
    fin1.close();
 
 
-   list<Goat> trip;
+   set<Goat> trip;
    bool quit = false;
    while (!quit){
        int choice = main_menu();
@@ -84,7 +84,7 @@ int main_menu(){
 }
 
 
-void add_goat(list<Goat>&trip, string names[], string colors[]){
+void add_goat(set<Goat>&trip, string names[], string colors[]){
    int name_index = rand() % SZ_NAMES;
    int color_index = rand() % SZ_COLORS;
    int age = rand() % (MAX_AGE + 1);
@@ -94,7 +94,7 @@ void add_goat(list<Goat>&trip, string names[], string colors[]){
 }
 
 
-void delete_goat(list<Goat> &trip){
+void delete_goat(set<Goat> &trip){
    if (trip.empty()){
        cout << "No goats" << endl;
        return;
@@ -107,6 +107,7 @@ void delete_goat(list<Goat> &trip){
    advance(it, index);
    trip.erase(it);
    cout << "Deleted" << endl;
+   trip.erase(it);
 }
 
 
@@ -124,7 +125,7 @@ void display_trip(list<Goat> &trip){
 }
 
 
-int select_goat(list<Goat>&trip){
+int select_goat(set<Goat>&trip){
    if (trip.empty()){
        cout << "No goats" << endl;
        return - 1;
