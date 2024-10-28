@@ -4,13 +4,27 @@
 #include <list>
 #include "Goat.h"
 using namespace std;
+//constants for arrays
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-
+//declare funcyions
+//select_goat() user to select goat
+//arguements: set<Goat>& trip- set of goats
+//return: index of goat or -1
 int select_goat(set<Goat>& trip);
+//delete_goat() deletes goat
+//arguements: set<Goat>&trip - set of goats
+//return: no
 void delete_goat(set<Goat>& trip);
+// add_goat() adds new goat
+// arguments: set<Goat>& trip- set of goats, string names[]-names, string colors[]colors
+//return: no
 void add_goat(set<Goat>& trip, string names[], string colors[]);
+//display_trip() displays goats
+//arguments: const set<Goat>& trip- set of goats
+//return: no
 void display_trip(const set<Goat>& trip);
+//main_menu() displays menu options and collects the choice
 int main_menu();
 
 
